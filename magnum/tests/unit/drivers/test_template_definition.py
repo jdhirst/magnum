@@ -1189,6 +1189,8 @@ class AtomicK8sTemplateDefinitionTestCase(BaseK8sTemplateDefinitionTestCase):
         octavia_lb_algorithm = mock_cluster.labels.get('octavia_lb_algorithm')
         octavia_lb_healthcheck = mock_cluster.labels.get('octavia_lb_healthcheck')
 
+        octavia_provider = mock_cluster.labels.get('octavia_provider')
+
         k8s_def = k8sa_tdef.AtomicK8sTemplateDefinition()
 
         k8s_def.get_params(mock_context, mock_cluster_template, mock_cluster)

@@ -49,6 +49,7 @@ resources:
   loadbalancer:
     type: Magnum::Optional::Neutron::LBaaS::LoadBalancer
     properties:
+      provider: {get_param: octavia_provider}
       vip_subnet: {get_param: fixed_subnet}
 
   listener:

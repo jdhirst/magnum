@@ -1183,6 +1183,7 @@ class AtomicK8sTemplateDefinitionTestCase(BaseK8sTemplateDefinitionTestCase):
 
         master_lb_allowed_cidrs = mock_cluster.labels.get(
             'master_lb_allowed_cidrs')
+        octavia_lb_algorithm = mock_cluster.labels.get('octavia_lb_algorithm')
 
         octavia_provider = mock_cluster.labels.get('octavia_provider')
         octavia_lb_algorithm = mock_cluster.labels.get('octavia_lb_algorithm')

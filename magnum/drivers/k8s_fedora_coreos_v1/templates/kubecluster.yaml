@@ -656,6 +656,24 @@ parameters:
       whether or not to use Octavia for LoadBalancer type service.
     default: False
 
+  octavia_provider:
+    type: string
+    default: amphora
+    description: >
+      Octavia provider driver to use for LoadBalancer type service.
+
+  octavia_lb_algorithm:
+    type: string
+    default: ROUND_ROBIN
+    description: >
+      Octavia lb algorithm to use for LoadBalancer type service
+
+  octavia_lb_healthcheck:
+    type: boolean
+    description: >
+      if true, enable Octavia load balancer healthcheck
+    default: true
+
   kube_service_account_key:
     type: string
     hidden: true
@@ -1017,6 +1035,7 @@ resources:
       protocol: {get_param: loadbalancing_protocol}
       port: {get_param: kubernetes_port}
       allowed_cidrs: {get_param: master_lb_allowed_cidrs}
+      octavia_lb_healthcheck: {get_param: octavia_lb_healthcheck}
 
   etcd_lb:
     condition: create_cluster_resources
@@ -1026,6 +1045,7 @@ resources:
       protocol: {get_param: loadbalancing_protocol}
       port: 2379
       allowed_cidrs: {get_param: master_lb_allowed_cidrs}
+      octavia_lb_healthcheck: {get_param: octavia_lb_healthcheck}
 
   ######################################################################
   #

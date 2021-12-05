@@ -1049,6 +1049,7 @@ resources:
       port: {get_param: kubernetes_port}
       allowed_cidrs: {get_param: master_lb_allowed_cidrs}
       octavia_lb_healthcheck: {get_param: octavia_lb_healthcheck}
+      octavia_lb_algorithm: {get_param: octavia_lb_algorithm}
       octavia_provider: {get_param: octavia_provider}
 
   etcd_lb:
@@ -1060,6 +1061,7 @@ resources:
       port: 2379
       allowed_cidrs: {get_param: master_lb_allowed_cidrs}
       octavia_lb_healthcheck: {get_param: octavia_lb_healthcheck}
+      octavia_lb_algorithm: {get_param: octavia_lb_algorithm}
       octavia_provider: {get_param: octavia_provider}
 
   ######################################################################
